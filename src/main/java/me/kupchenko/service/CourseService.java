@@ -41,42 +41,46 @@ public class CourseService {
 
     public CoursesDto getCourses() {
         List<CourseDto> coursesDtos = storage.getCourses().stream()
-                .map(course -> {
-                    List<StudentDto> students;
-                    if (course.getStudents() != null) {
-                        students = course.getStudents().stream()
-                                .map(Long::valueOf)
-                                .map(storage::getStudentById)
-                                .filter(Optional::isPresent)
-                                .map(Optional::get)
-                                .map(student ->
-                                        StudentDto.builder()
-                                                .email(student.getEmail())
-                                                .dateOfBirth(student.getDateOfBirth())
-                                                .lastName(student.getLastName())
-                                                .firstName(student.getFirstName())
-                                                .build()
-                                ).collect(Collectors.toList());
-                    } else {
-                        students = new ArrayList<>();
-                    }
-                    return CourseDto.builder()
-                            .name(course.getName())
-                            .enrollmentYear(String.valueOf(course.getEnrollmentYear()))
-                            .room(String.valueOf(course.getRoom()))
-                            .subjects(course.getSubjects())
-                            .students(students)
-                            .build();
-                })
+                .map(this::getCourseDto)
                 .collect(Collectors.toList());
         return new CoursesDto(coursesDtos);
     }
 
-    public Course getCourseById(Long courseId) {
-        return storage.getCourseById(courseId).orElseThrow(CourseNotFoundException::new);
+    private CourseDto getCourseDto(Course course) {
+        List<StudentDto> students;
+        if (course.getStudents() != null) {
+            students = course.getStudents().stream()
+                    .map(Long::valueOf)
+                    .map(storage::getStudentById)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .map(student ->
+                            StudentDto.builder()
+                                    .email(student.getEmail())
+                                    .dateOfBirth(student.getDateOfBirth())
+                                    .lastName(student.getLastName())
+                                    .firstName(student.getFirstName())
+                                    .build()
+                    ).collect(Collectors.toList());
+        } else {
+            students = new ArrayList<>();
+        }
+        return CourseDto.builder()
+                .name(course.getName())
+                .enrollmentYear(String.valueOf(course.getEnrollmentYear()))
+                .room(String.valueOf(course.getRoom()))
+                .subjects(course.getSubjects())
+                .students(students)
+                .build();
+    }
+
+    public CourseDto getCourseById(Long courseId) {
+        Course course = storage.getCourseById(courseId).orElseThrow(CourseNotFoundException::new);
+        return getCourseDto(course);
     }
 
     public void deleteCourseById(Long courseId) {
+        storage.getCourseById(courseId).orElseThrow(CourseNotFoundException::new);
         storage.deleteCourseById(courseId);
     }
 }

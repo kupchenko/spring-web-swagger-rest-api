@@ -2,6 +2,7 @@ package me.kupchenko.controller.impl;
 
 import lombok.RequiredArgsConstructor;
 import me.kupchenko.controller.SwaggerCourseController;
+import me.kupchenko.dto.CourseDto;
 import me.kupchenko.dto.CourseDtoRequest;
 import me.kupchenko.dto.CoursesDto;
 import me.kupchenko.model.Course;
@@ -20,7 +21,7 @@ public class CourseController implements SwaggerCourseController {
         return courseService.getCourses();
     }
 
-    public Course getCourseById(@PathVariable Long courseId) {
+    public CourseDto getCourseById(@PathVariable Long courseId) {
         return courseService.getCourseById(courseId);
     }
 

@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import me.kupchenko.dto.CourseDto;
 import me.kupchenko.dto.CourseDtoRequest;
 import me.kupchenko.dto.CoursesDto;
 import me.kupchenko.model.Course;
@@ -40,7 +41,7 @@ public interface SwaggerCourseController {
     }
     )
     @GetMapping("/{courseId}")
-    Course getCourseById(@PathVariable Long courseId);
+    CourseDto getCourseById(@PathVariable Long courseId);
 
     @ApiOperation(value = "Delete Course info")
     @ApiResponses(value = {
