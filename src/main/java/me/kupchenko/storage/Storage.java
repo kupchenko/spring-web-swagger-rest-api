@@ -5,13 +5,29 @@ import me.kupchenko.model.Student;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Component
 public class Storage {
-    private List<Course> courses;
-    private List<Student> students;
+    private List<Course> courses = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
+
+    public Storage() {
+        prepareTestData();
+    }
+
+    private void prepareTestData() {
+        Student student1 = new Student(1L, "Dmitrii", "Kup", "21.03.****", "dmitrii@email.com");
+        Student student2 = new Student(1L, "Yuliia", "Sereda", "29.09.****", "yuliia@email.com");
+        Student student3 = new Student(1L, "Zui", "Dang", "**.**.****", "zui@email.com");
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        Course course = new Course(1L, "QA", 202, Arrays.asList("sub1", "sub2"), 2019, Arrays.asList("1", "2", "3"));
+        courses.add(course);
+    }
 
     public Optional<Student> getStudentById(Long studId) {
         return students.stream()

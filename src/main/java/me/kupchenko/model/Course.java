@@ -14,6 +14,6 @@ public class Course {
     private String name;
     private Integer room;
     private List<String> subjects;
-    private Short enrollmentYear;
+    private Integer enrollmentYear;
     private List<String> students;
 }
