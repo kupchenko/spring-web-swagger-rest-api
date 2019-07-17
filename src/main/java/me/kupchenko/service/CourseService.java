@@ -88,7 +88,9 @@ public class CourseService {
     public CourseDto addStudentToCourse(Long courseId, Long studentId) {
         storage.getStudentById(studentId).orElseThrow(StudentNotFoundException::new);
         Course course = storage.getCourseById(courseId).orElseThrow(CourseNotFoundException::new);
-        course.addStudent(studentId);
+        if (!course.getStudents().contains(String.valueOf(studentId))) {
+            course.addStudent(studentId);
+        }
         return getCourseDto(course);
     }
 }
