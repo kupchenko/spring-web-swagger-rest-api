@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,6 +19,7 @@ public class Course {
     private List<String> students;
 
     public void addStudent(Long studentId) {
+        students = new ArrayList<>(students);
         students.add(String.valueOf(studentId));
     }
 }
