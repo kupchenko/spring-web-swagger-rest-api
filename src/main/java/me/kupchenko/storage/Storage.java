@@ -20,8 +20,8 @@ public class Storage {
 
     private void prepareTestData() {
         Student student1 = new Student(1L, "Dmitrii", "Kup", "21.03.****", "dmitrii@email.com");
-        Student student2 = new Student(1L, "Yuliia", "Sereda", "29.09.****", "yuliia@email.com");
-        Student student3 = new Student(1L, "Zui", "Dang", "**.**.****", "zui@email.com");
+        Student student2 = new Student(2L, "Yuliia", "Sereda", "29.09.****", "yuliia@email.com");
+        Student student3 = new Student(3L, "Zui", "Dang", "**.**.****", "zui@email.com");
         students.add(student1);
         students.add(student2);
         students.add(student3);
