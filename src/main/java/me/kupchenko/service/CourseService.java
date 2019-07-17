@@ -13,13 +13,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class CourseService {
     private final Storage storage;
+    private final AtomicLong id = new AtomicLong(10);
 
     public Course createCourse(CourseDtoRequest courseDto) {
         Course course = mapToCourse(courseDto);
@@ -28,9 +29,8 @@ public class CourseService {
     }
 
     private Course mapToCourse(CourseDtoRequest studentDto) {
-        Random random = new Random();
         return Course.builder()
-                .id(random.nextLong())
+                .id(id.incrementAndGet())
                 .name(studentDto.getName())
                 .room(Integer.valueOf(studentDto.getRoom()))
                 .enrollmentYear(Integer.valueOf(studentDto.getEnrollmentYear()))

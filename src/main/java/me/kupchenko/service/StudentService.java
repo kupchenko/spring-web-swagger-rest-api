@@ -8,12 +8,13 @@ import me.kupchenko.model.Students;
 import me.kupchenko.storage.Storage;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 @RequiredArgsConstructor
 public class StudentService {
     private final Storage storage;
+    private final AtomicLong id = new AtomicLong(10);
 
     public Student getStudentById(Long studId) {
         return storage.getStudentById(studId).orElseThrow(StudentNotFoundException::new);
@@ -30,9 +31,8 @@ public class StudentService {
     }
 
     private Student mapToStudent(StudentDto studentDto) {
-        Random random = new Random();
         return Student.builder()
-                .id(random.nextLong())
+                .id(id.incrementAndGet())
                 .firstName(studentDto.getFirstName())
                 .lastName(studentDto.getLastName())
                 .dateOfBirth(studentDto.getDateOfBirth())
