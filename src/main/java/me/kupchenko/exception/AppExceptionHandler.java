@@ -11,4 +11,9 @@ public class AppExceptionHandler {
     public ResponseEntity handleNotFound() {
         return ResponseEntity.notFound().build();
     }
+
+    @ExceptionHandler({NumberFormatException.class})
+    public ResponseEntity handleNumberFormatException() {
+        return ResponseEntity.badRequest().build();
+    }
 }

@@ -3,7 +3,7 @@ package me.kupchenko.service;
 import lombok.RequiredArgsConstructor;
 import me.kupchenko.exception.StudentNotFoundException;
 import me.kupchenko.model.Student;
-import me.kupchenko.model.StudentDto;
+import me.kupchenko.dto.StudentDto;
 import me.kupchenko.model.Students;
 import me.kupchenko.storage.Storage;
 import org.springframework.stereotype.Service;

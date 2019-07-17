@@ -5,8 +5,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import me.kupchenko.dto.StudentDto;
 import me.kupchenko.model.Student;
-import me.kupchenko.model.StudentDto;
 import me.kupchenko.model.Students;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -58,7 +58,9 @@ public interface SwaggerStudentController {
     @ApiOperation(value = "Create Student info", response = Student.class)
     @ApiResponses(value = {
             @ApiResponse(code = HttpServletResponse.SC_OK,
-                    message = "Successfully created Student info")
+                    message = "Successfully created Student info"),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST,
+                    message = "Request body is invalid")
     }
     )
     @PostMapping
@@ -69,7 +71,9 @@ public interface SwaggerStudentController {
             @ApiResponse(code = HttpServletResponse.SC_OK,
                     message = "Successfully updated Student info"),
             @ApiResponse(code = HttpServletResponse.SC_NOT_FOUND,
-                    message = "No student found with given id")
+                    message = "No student found with given id"),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST,
+                    message = "Request body is invalid")
     }
     )
     @PutMapping("/{studId}")

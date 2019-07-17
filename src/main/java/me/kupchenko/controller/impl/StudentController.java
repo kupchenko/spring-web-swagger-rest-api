@@ -3,7 +3,7 @@ package me.kupchenko.controller.impl;
 import lombok.RequiredArgsConstructor;
 import me.kupchenko.controller.SwaggerStudentController;
 import me.kupchenko.model.Student;
-import me.kupchenko.model.StudentDto;
+import me.kupchenko.dto.StudentDto;
 import me.kupchenko.model.Students;
 import me.kupchenko.service.StudentService;
 import org.springframework.http.ResponseEntity;

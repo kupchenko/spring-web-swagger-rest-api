@@ -1,4 +1,4 @@
-package me.kupchenko.model;
+package me.kupchenko.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseDto {
+public class CourseDtoRequest {
     private String name;
     private String room;
     private List<String> subjects;
     private String enrollmentYear;
-    private List<StudentDto> students;
 }

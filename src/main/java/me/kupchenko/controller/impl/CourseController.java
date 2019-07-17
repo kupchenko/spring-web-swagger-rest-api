@@ -2,9 +2,9 @@ package me.kupchenko.controller.impl;
 
 import lombok.RequiredArgsConstructor;
 import me.kupchenko.controller.SwaggerCourseController;
+import me.kupchenko.dto.CourseDtoRequest;
+import me.kupchenko.dto.CoursesDto;
 import me.kupchenko.model.Course;
-import me.kupchenko.model.CourseDto;
-import me.kupchenko.model.CoursesDto;
 import me.kupchenko.service.CourseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +29,7 @@ public class CourseController implements SwaggerCourseController {
         return ResponseEntity.ok().build();
     }
 
-    public Course createCourse(@RequestBody CourseDto courseDto) {
+    public Course createCourse(@RequestBody CourseDtoRequest courseDto) {
         return courseService.createCourse(courseDto);
     }
 }

@@ -5,9 +5,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import me.kupchenko.dto.CourseDtoRequest;
+import me.kupchenko.dto.CoursesDto;
 import me.kupchenko.model.Course;
-import me.kupchenko.model.CourseDto;
-import me.kupchenko.model.CoursesDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,8 +57,10 @@ public interface SwaggerCourseController {
     @ApiResponses(value = {
             @ApiResponse(code = HttpServletResponse.SC_CREATED,
                     message = "Successfully deleted Course info"),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST,
+                    message = "Request body is invalid")
     }
     )
     @PostMapping()
-    Course createCourse(@RequestBody CourseDto courseDto);
+    Course createCourse(@RequestBody CourseDtoRequest courseDto);
 }

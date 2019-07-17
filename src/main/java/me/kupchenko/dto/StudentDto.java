@@ -1,4 +1,4 @@
-package me.kupchenko.model;
+package me.kupchenko.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
