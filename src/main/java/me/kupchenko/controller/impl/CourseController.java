@@ -33,4 +33,9 @@ public class CourseController implements SwaggerCourseController {
     public Course createCourse(@RequestBody CourseDtoRequest courseDto) {
         return courseService.createCourse(courseDto);
     }
+
+    @Override
+    public CourseDto addStudentToCourse(Long courseId, Long studentId) {
+        return courseService.addStudentToCourse(courseId, studentId);
+    }
 }

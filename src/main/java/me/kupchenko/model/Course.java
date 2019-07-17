@@ -16,4 +16,8 @@ public class Course {
     private List<String> subjects;
     private Integer enrollmentYear;
     private List<String> students;
+
+    public void addStudent(Long studentId) {
+        students.add(String.valueOf(studentId));
+    }
 }

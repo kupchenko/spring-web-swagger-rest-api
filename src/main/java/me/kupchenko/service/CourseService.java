@@ -6,6 +6,7 @@ import me.kupchenko.dto.CourseDtoRequest;
 import me.kupchenko.dto.CoursesDto;
 import me.kupchenko.dto.StudentDto;
 import me.kupchenko.exception.CourseNotFoundException;
+import me.kupchenko.exception.StudentNotFoundException;
 import me.kupchenko.model.Course;
 import me.kupchenko.storage.Storage;
 import org.springframework.stereotype.Service;
@@ -82,5 +83,12 @@ public class CourseService {
     public void deleteCourseById(Long courseId) {
         storage.getCourseById(courseId).orElseThrow(CourseNotFoundException::new);
         storage.deleteCourseById(courseId);
+    }
+
+    public CourseDto addStudentToCourse(Long courseId, Long studentId) {
+        storage.getStudentById(studentId).orElseThrow(StudentNotFoundException::new);
+        Course course = storage.getCourseById(courseId).orElseThrow(CourseNotFoundException::new);
+        course.addStudent(studentId);
+        return getCourseDto(course);
     }
 }

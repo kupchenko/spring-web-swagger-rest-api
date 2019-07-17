@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -64,4 +65,17 @@ public interface SwaggerCourseController {
     )
     @PostMapping()
     Course createCourse(@RequestBody CourseDtoRequest courseDto);
+
+    @ApiOperation(value = "Add Student to  Course", response = Course.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = HttpServletResponse.SC_CREATED,
+                    message = "Successfully added student to Course"),
+            @ApiResponse(code = HttpServletResponse.SC_BAD_REQUEST,
+                    message = "Request body is invalid"),
+            @ApiResponse(code = HttpServletResponse.SC_NOT_FOUND,
+                    message = "No course or student found with given id")
+    }
+    )
+    @PutMapping("/{courseId}/student/{studentId}")
+    CourseDto addStudentToCourse(@PathVariable Long courseId, @PathVariable Long studentId);
 }
