@@ -73,7 +73,7 @@
                 <version>1.9.76</version>
                 <configuration>
                     <enableJarClasses>true</enableJarClasses>
-                    <port>8181</port>
+                    <port>8080</port>
                     <address>0.0.0.0</address>
                     <appDir>target</appDir>
                 </configuration>
