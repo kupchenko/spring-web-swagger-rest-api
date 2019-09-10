@@ -72,9 +72,10 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.9.76</version>
                 <configuration>
-                    <enableJarClasses>false</enableJarClasses>
+                    <enableJarClasses>true</enableJarClasses>
                     <port>8181</port>
                     <address>0.0.0.0</address>
+                    <appDir>target</appDir>
                 </configuration>
             </plugin>
         </plugins>
