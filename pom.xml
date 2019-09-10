@@ -68,17 +68,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>1.9.76</version>
-                <configuration>
-                    <enableJarClasses>true</enableJarClasses>
-                    <port>8080</port>
-                    <address>0.0.0.0</address>
-                    <appDir>target</appDir>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>2.1.0</version>
