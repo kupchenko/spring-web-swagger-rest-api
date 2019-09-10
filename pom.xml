@@ -76,7 +76,7 @@
                 <version>2.1.0</version>
                 <configuration>
                     <deploy.projectId>${project.artifactId}</deploy.projectId>
-                    <deploy.version>${project.version}</deploy.version>
+                    <deploy.version>test1</deploy.version>
                 </configuration>
             </plugin>
         </plugins>
