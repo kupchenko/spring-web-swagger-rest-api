@@ -75,7 +75,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>2.1.0</version>
                 <configuration>
-                    <deploy.projectId>${project.artifactId}</deploy.projectId>
+                    <deploy.projectId>postman-testing-252516</deploy.projectId>
                     <deploy.version>test1</deploy.version>
                 </configuration>
             </plugin>
