@@ -67,7 +67,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>1.9.76</version>
+                <configuration>
+                    <enableJarClasses>false</enableJarClasses>
+                    <port>8181</port>
+                    <address>0.0.0.0</address>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
 </project>

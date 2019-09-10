@@ -30,7 +30,7 @@ public interface SwaggerCourseController {
                     message = "Successfully retrieved CoursesDto info")
     }
     )
-    @GetMapping()
+    @GetMapping
     CoursesDto getCourses();
 
     @ApiOperation(value = "View Course info", response = Course.class)
