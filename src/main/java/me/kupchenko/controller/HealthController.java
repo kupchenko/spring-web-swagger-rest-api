@@ -11,5 +11,10 @@ public class HealthController {
         // Message body required though ignored
         return "Still surviving.";
     }
-    
+
+    @RequestMapping("/")
+    public String home() {
+        return "Hello World!";
+    }
+
 }
