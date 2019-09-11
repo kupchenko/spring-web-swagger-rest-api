@@ -62,6 +62,7 @@
     </dependencies>
 
     <build>
+        <finalName>spring-swagger-rest-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
