@@ -76,7 +76,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>2.1.0</version>
                 <configuration>
-                    <deploy.projectId>my-project-21924</deploy.projectId>
+                    <deploy.projectId>dynamic-circle-252606</deploy.projectId>
                     <deploy.version>test1</deploy.version>
                     <deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
                 </configuration>
